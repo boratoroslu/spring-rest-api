@@ -45,4 +45,7 @@ public class EmployeeService {
 	public boolean deleteEmployee(String id) {
 		return employeeRepository.deleteEmployee(id);
 	}
+	public Employee updateEmployee(String id , UpdateEmployeeRequest request) {
+		return employeeRepository.updateEmployee(id, request);
+	}
 }

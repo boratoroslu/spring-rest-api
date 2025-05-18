@@ -75,7 +75,24 @@ public class EmployeeRepository {
 			employeeList.remove(deleteEmployee);	
 			return true;
 		}
-	
+		public Employee updateEmployee(String id, UpdateEmployeeRequest request) {
+			Employee findEmployee = findEmployeeById(id);
+			if (findEmployee != null) {
+				deleteEmployee(id);
+
+				Employee updatedEmployee = new Employee();
+				updatedEmployee.setId(id);
+				updatedEmployee.setFirstName(request.getFirstName());
+				updatedEmployee.setLastName(request.getLastName());
+
+				employeeList.add(updatedEmployee);
+
+				return updatedEmployee;
+			}
+
+			return null;
+		}
+
 	
 	
 	
